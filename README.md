@@ -86,6 +86,24 @@ Nếu các bạn là giảng viên hoặc reviewer:
 
 ## Tài liệu nên đọc tiếp
 
+## Chạy với Antco AI Gateway
+
+Antco dùng API tương thích OpenAI. Sao chép `.env.example` thành `.env`, điền
+`CUSTOM_API_KEY`, rồi kiểm tra bằng đúng một request:
+
+```powershell
+.\.venv\Scripts\python.exe src\smoke_test_llm.py
+```
+
+Khi smoke test thành công, đặt `BENCHMARK_LIVE=1` và chạy:
+
+```powershell
+.\.venv\Scripts\python.exe src\benchmark.py
+```
+
+Benchmark live gọi model nhiều lần và có thể tiêu tốn quota. Đặt lại
+`BENCHMARK_LIVE=0` để chạy bản deterministic/offline.
+
 - `Guide.md`: hướng dẫn từng bước để hoàn thành lab
 - `Rubric.md`: tiêu chí chấm điểm và bonus
 
